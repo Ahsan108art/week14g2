@@ -1,0 +1,12 @@
+name: dev-cd-wf
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  devlop_deploy_job:
+    runs-on: ubuntu-latest
+    environment: "development-env"
+    steps:
+      - name: Deploy Develop Branch Code On Render
+        run: curl -X POST ${{secrets.RENDER_DEVOLOP_DEP}}
